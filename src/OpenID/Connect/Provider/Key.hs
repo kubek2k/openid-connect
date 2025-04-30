@@ -26,8 +26,8 @@ module OpenID.Connect.Provider.Key
 --------------------------------------------------------------------------------
 -- Imports:
 import Control.Lens ((^.), (?~), re)
-import Crypto.Hash (Digest, SHA256)
 import Crypto.JOSE (JWK, KeyUse(..))
+import Crypto.Hash
 import qualified Crypto.JOSE as JOSE
 import qualified Crypto.JOSE.JWA.JWE.Alg as JOSE
 import Crypto.Random (MonadRandom)

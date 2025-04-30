@@ -67,7 +67,7 @@ import qualified Crypto.Hash as Hash
 import qualified Crypto.JOSE.Error as JOSE
 import Crypto.JOSE.JWK (JWKSet)
 import Crypto.JWT (SignedJWT, ClaimsSet, JWTError)
-import Crypto.Random (MonadRandom(..))
+import Crypto.Random.Types (MonadRandom(..))
 import Data.Bifunctor (bimap, first, second)
 import Data.ByteArray.Encoding
 import Data.ByteString (ByteString)

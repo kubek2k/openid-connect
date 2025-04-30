@@ -30,7 +30,6 @@ import Crypto.JOSE.JWK (JWK)
 import qualified Crypto.JOSE.JWK as JWK
 import Crypto.JWT (ClaimsSet)
 import qualified Crypto.JWT as JWT
-import Crypto.Random (MonadRandom(..))
 import Data.ByteArray.Encoding
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as Char8
@@ -46,7 +45,7 @@ import OpenID.Connect.JSON
 --------------------------------------------------------------------------------
 -- | Modify a request so that it uses the proper authentication method.
 applyRequestAuthentication
-  :: forall m. MonadRandom m
+  :: forall m. (JWT.MonadRandom m)
   => Credentials                -- ^ Client credentials.
   -> [ClientAuthentication]     -- ^ Available authentication methods.
   -> URI                        -- ^ Token Endpoint URI
@@ -124,7 +123,7 @@ applyRequestAuthentication creds methods uri now body =
     -- JWT ID.  From the standard: A unique identifier for the token,
     -- which can be used to prevent reuse of the token.
     makeJti :: m Text
-    makeJti = (getRandomBytes 64 :: m ByteString)
+    makeJti = (JWT.getRandomBytes 64 :: m ByteString)
                 <&> (<> Char8.pack (show now))
                 <&> convertToBase Base64URLUnpadded
                 <&> Text.decodeUtf8
