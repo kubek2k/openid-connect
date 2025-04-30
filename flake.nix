@@ -27,7 +27,7 @@
       ];
 
       # List of supported systems:
-      supportedSystems = [ "x86_64-linux" ];
+      supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
 
       # Function to generate a set based on supported systems:
       forAllSystems = f:
@@ -68,7 +68,7 @@
             haskell.cabal-install
             haskell.haskell-language-server
             haskell.hlint
-            haskell.ormolu
+            # haskell.ormolu
             inputs.haskellrc.packages.${pkgs.system}.default
           ];
         };
