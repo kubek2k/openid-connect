@@ -84,7 +84,7 @@ common dependencies
     , bytestring            >=0.10  && <0.13
     , case-insensitive      ^>=1.2
     , containers            ^>=0.6
-    , cookie                ^>=0.4
+    , cookie                >=0.4
     , crypton               >=1.0.0 && < 1.1.0
     , http-client           >=0.6   && <0.8
     , http-types            ^>=0.12

@@ -64,11 +64,8 @@
           packages = _: [ self.packages.${pkgs.system}.${packageName} ];
           withHoogle = true;
           buildInputs = [
-            haskell.cabal-fmt
             haskell.cabal-install
-            haskell.haskell-language-server
             haskell.hlint
-            # haskell.ormolu
             inputs.haskellrc.packages.${pkgs.system}.default
           ];
         };
