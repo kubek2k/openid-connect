@@ -38,6 +38,9 @@ module OpenID.Connect.Client.Flow.AuthorizationCode
     authenticationRedirect
   , authenticationSuccess
   , authenticationSuccessWithJwt
+  , exchangeCodeForIdentityToken
+  , extractClaimsSetFromTokenResponse
+  , verifyPostRedirectRequest
   , RedirectTo(..)
 
     -- * Authentication settings
